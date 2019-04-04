@@ -32,7 +32,20 @@ public class MainActivity extends AppCompatActivity {
                     MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         } else {
             //Permission granted
-            Toast.makeText(MainActivity.this, "Access Granted!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(MainActivity.this, "Access granted!", Toast.LENGTH_LONG).show();
+                } else {
+
+                }
+                break;
+            }
         }
     }
 }
